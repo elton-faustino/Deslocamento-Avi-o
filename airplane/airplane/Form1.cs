@@ -28,7 +28,7 @@ namespace airplane
 
         private void ProcessarEventosTimer(object sender, EventArgs e)
         {
-            var novoPonto = ObterSenoConseno(_angulo);
+            var novoPonto = ObterSenoCoseno(_angulo);
 
             _pontoSC.X = _pontoSC.X + novoPonto.X;
             _pontoSC.Y = _pontoSC.Y + novoPonto.Y;
@@ -68,7 +68,7 @@ namespace airplane
 
             ValidarAngulo(ref angulo);
 
-            ObterSenoConseno(angulo);
+            ObterSenoCoseno(angulo);
 
             if (e.KeyCode == Keys.Right)
                 angulo += _deslocamento;
@@ -79,7 +79,7 @@ namespace airplane
             Refresh();
         }
 
-        private PointF ObterSenoConseno(float angulo)
+        private PointF ObterSenoCoseno(float angulo)
         {
             var seno = Math.Sin((Math.PI / 180) * angulo);
             var coseno = Math.Cos((Math.PI / 180) * angulo);
